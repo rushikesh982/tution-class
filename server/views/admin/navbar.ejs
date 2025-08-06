@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduCenter Admin Panel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/admin/navbar.css">
+
+    
+</head>
+<body>
+    <!-- Mobile Overlay -->
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="" class="sidebar-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div>
+                    <h5 class="mb-0">EduCenter</h5>
+                    <small>Admin Panel</small>
+                </div>
+            </a>
+        </div>
+
+        <nav class="sidebar-nav">
+            <div class="nav-item">
+                <a href="/admin/dashboard" class="nav-link active">
+                    <i class="fas fa-tachometer-alt"></i>
+                    Dashboard
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="/admin/course" class="nav-link">
+                    <i class="fas fa-book-open"></i>
+                    Course Management
+                </a>
+            </div>
+            <!-- <div class="nav-item">
+                <a href="/admin/batchManagement" class="nav-link">
+                    <i class="fas fa-users"></i>
+                    Batch Management
+                </a>
+            </div> -->
+            <div class="nav-item">
+                <a href="/admin/enquiries" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    Enquiries
+                    <span class="badge-notification">3</span>
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="/admin/class-schedules" class="nav-link">
+                    <i class="fas fa-envelope"></i>
+                    classes Schedule
+                    <span class="badge-notification">3</span>
+                </a>
+            </div>
+            <!-- <div class="nav-item">
+                <a href="/admin/testimonials" class="nav-link">
+                    <i class="fas fa-star"></i>
+                    Testimonials
+                </a>
+            </div> -->
+            <!-- <div class="nav-item">
+                <a href="/admin/students" class="nav-link">
+                    <i class="fas fa-user-check"></i>
+                    Student Management
+                </a>
+            </div> -->
+            <div class="nav-item">
+                <a href="/admin/contactList" class="nav-link">
+                    <i class="fas fa-bell"></i>
+                    contact
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="/admin/about-history" class="nav-link">
+                    <i class="fas fa-user-check"></i>
+                    About history
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="/admin/founder-bio" class="nav-link">
+                    <i class="fas fa-user-check"></i>
+                   about founder bio
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="/admin/home_about_list" class="nav-link">
+                    <i class="fas fa-user-check"></i>
+                   Home About
+                </a>
+            </div>
+            <div class="nav-item">
+                <a href="/admin/educational-features" class="nav-link">
+                    <i class="fas fa-bell"></i>
+                   about educational feature
+                </a>
+            </div>
+        </nav>
+
+        <div class="sidebar-footer">
+            <div class="admin-profile">
+                <div class="d-flex align-items-center mb-3">
+                    <div class="admin-avatar me-3">AD</div>
+                    <div>
+                        <div class="fw-semibold">Admin User</div>
+                        <small class="text-muted">admin@educenter.com</small>
+                    </div>
+                </div>
+                <button class="btn btn-danger btn-sm w-100">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </button>
+            </div>
+        </div>
+    </div>
+<div class="main-content">
+        <!-- Header -->
+        <div class="top-header">
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-link d-md-none me-3" id="menuToggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h4 class="mb-0 fw-bold text-dark">Dashboard</h4>
+                </div>
+                <div class="d-flex align-items-center">
+                    <button class="btn btn-link position-relative me-3">
+                        <i class="fas fa-bell text-muted"></i>
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.6rem;">3</span>
+                    </button>
+                    <div class="text-end d-none d-sm-block">
+                        <div class="fw-semibold">Welcome back!</div>
+                        <small class="text-muted">Today is a great day to teach</small>
+                    </div>
+                </div>
+            </div>
+        </div>

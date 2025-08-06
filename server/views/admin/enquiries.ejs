@@ -1,0 +1,86 @@
+<%- include('navbar') %>
+<!-- <div id="enquiries">
+  <div class="content-card">
+    <div class="card-header">
+      <h5 class="mb-0 fw-semibold">Enquiry Management</h5>
+    </div>
+    <div class="card-body">
+      <div class="enquiry-card">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center mb-2">
+              <h6 class="mb-0 fw-semibold me-3">John Smith</h6>
+              <span
+                class="badge"
+                style="background: rgba(111, 66, 193, 0.1); color: #6f42c1"
+                >New</span
+              >
+            </div>
+            <p class="text-muted mb-2">
+              john.smith@email.com • +1 234 567 8900
+            </p>
+            <p class="mb-2">
+              Interested in Mathematics course for Grade 11. Looking for evening
+              batches.
+            </p>
+            <small class="text-muted">Received 2 hours ago</small>
+          </div>
+          <div class="ms-3">
+            <button class="btn btn-success btn-sm me-2">Reply</button>
+            <button class="btn btn-outline-secondary btn-sm">Mark Read</button>
+          </div>
+        </div>
+      </div>
+      <div class="enquiry-card">
+        <div class="d-flex justify-content-between align-items-start">
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center mb-2">
+              <h6 class="mb-0 fw-semibold me-3">Mary Johnson</h6>
+              <span class="badge badge-warning">Pending</span>
+            </div>
+            <p class="text-muted mb-2">mary.j@email.com • +1 234 567 8901</p>
+            <p class="mb-2">
+              Inquiry about Science course fees and batch timings for Grade 10.
+            </p>
+            <small class="text-muted">Received 4 hours ago</small>
+          </div>
+          <div class="ms-3">
+            <button class="btn btn-success btn-sm me-2">Reply</button>
+            <button class="btn btn-outline-secondary btn-sm">Mark Read</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+<!-- views/admin/contactMessages.ejs -->
+<h2>📬 Contact Submissions</h2>
+<table border="1" cellpadding="10">
+  <thead>
+    <tr>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Subject</th>
+      <th>Course</th>
+      <th>Message</th>
+      <th>Submitted At</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% messages.forEach(msg => { %>
+      <tr>
+        <td><%= msg.full_name %></td>
+        <td><%= msg.email %></td>
+        <td><%= msg.phone %></td>
+        <td><%= msg.subject %></td>
+        <td><%= msg.course_interest %></td>
+        <td><%= msg.message %></td>
+        <td><%= msg.created_at.toLocaleString() %></td>
+      </tr>
+    <% }) %>
+  </tbody>
+</table>
+
+<%- include('footer') %>
+

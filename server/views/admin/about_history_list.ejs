@@ -1,0 +1,29 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+  <h2>About History</h2>
+  <a href="/admin/about-history/add" class="btn btn-success mb-3">Add New</a>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Year</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% history.forEach(item => { %>
+        <tr>
+          <td><%= item.year %></td>
+          <td><%= item.title %></td>
+          <td><%= item.description %></td>
+          <td>
+            <a href="/admin/about-history/edit/<%= item.id %>" class="btn btn-sm btn-primary">Edit</a>
+            <a href="/admin/about-history/delete/<%= item.id %>" onclick="return confirm('Delete this item?')" class="btn btn-sm btn-danger">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+<%- include('footer') %>

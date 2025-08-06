@@ -1,0 +1,20 @@
+<%- include('navbar') %>
+<div class="container mt-4">
+  <h2><%= item ? 'Edit' : 'Add' %> History Item</h2>
+  <form action="<%= item ? '/admin/about-history/update/' + item.id : '/admin/about-history/save' %>" method="POST">
+    <div class="mb-3">
+      <label class="form-label">Year</label>
+      <input type="text" name="year" value="<%= item ? item.year : '' %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" value="<%= item ? item.title : '' %>" class="form-control" required>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea name="description" class="form-control" rows="4" required><%= item ? item.description : '' %></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+  </form>
+</div>
+<%- include('footer') %>

@@ -1,0 +1,133 @@
+<%- include('navbar') %>
+<div id="testimonials">
+  <div class="content-card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+      <h5 class="mb-0 fw-semibold">Testimonials Management</h5>
+      <button
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#testimonialModal"
+      >
+        <i class="fas fa-plus me-2"></i>Add Testimonial
+      </button>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <div class="admin-avatar me-3" style="background: #6f42c1">
+                AS
+              </div>
+              <div>
+                <div class="fw-semibold">Alice Smith</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted small mb-3">
+              "Excellent teaching methods and very supportive faculty. My grades
+              improved significantly!"
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Mathematics Course</small>
+              <div>
+                <button class="action-btn btn-edit">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn btn-delete">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <div class="testimonial-card">
+            <div class="d-flex align-items-center mb-3">
+              <div class="admin-avatar me-3" style="background: #28a745">
+                BJ
+              </div>
+              <div>
+                <div class="fw-semibold">Bob Johnson</div>
+                <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <p class="text-muted small mb-3">
+              "Great learning environment and personalized attention. Highly
+              recommend!"
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+              <small class="text-muted">Science Course</small>
+              <div>
+                <button class="action-btn btn-edit">
+                  <i class="fas fa-edit"></i>
+                </button>
+                <button class="action-btn btn-delete">
+                  <i class="fas fa-trash"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal fade" id="testimonialModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Add New Testimonial</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">Student Name</label>
+                            <input type="text" class="form-control" placeholder="Enter student name">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Course</label>
+                            <select class="form-select">
+                                <option>Select Course</option>
+                                <option>Mathematics</option>
+                                <option>Science</option>
+                                <option>English</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Rating</label>
+                            <select class="form-select">
+                                <option>5 Stars</option>
+                                <option>4 Stars</option>
+                                <option>3 Stars</option>
+                                <option>2 Stars</option>
+                                <option>1 Star</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">Testimonial</label>
+                            <textarea class="form-control" rows="4" placeholder="Enter testimonial text"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Save Testimonial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<%- include('footer') %>

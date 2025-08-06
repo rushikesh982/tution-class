@@ -1,0 +1,41 @@
+<%- include('navbar') %>
+
+<div class="container mt-5">
+  <h2><%= feature ? "Edit" : "Add" %> Teaching Philosophy</h2>
+
+  <form action="<%= feature ? '/admin/educational-features/update/' + feature.id : '/admin/educational-features/save' %>" 
+        method="POST" 
+        enctype="multipart/form-data">
+
+    <div class="mb-3">
+      <label class="form-label">Icon Image</label>
+      <input type="file" name="icon" class="form-control" <%= feature ? '' : 'required' %>>
+      <% if (feature && feature.icon) { %>
+        <img src="/uploads/icons/<%= feature.icon %>" alt="Icon" style="height: 50px; margin-top: 10px;">
+      <% } %>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Title</label>
+      <input type="text" name="title" class="form-control" value="<%= feature ? feature.title : '' %>" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description</label>
+      <textarea name="description" class="form-control" rows="5" required><%= feature ? feature.description : '' %></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Status</label>
+      <select name="status" class="form-control">
+        <option value="active" <%= feature && feature.status === 'active' ? 'selected' : '' %>>Active</option>
+        <option value="inactive" <%= feature && feature.status === 'inactive' ? 'selected' : '' %>>Inactive</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary"><%= feature ? "Update" : "Save" %></button>
+    <a href="/admin/educational-features" class="btn btn-secondary">Cancel</a>
+  </form>
+</div>
+
+<%- include('footer') %>

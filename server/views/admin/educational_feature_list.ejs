@@ -1,0 +1,38 @@
+<%- include('navbar') %>
+
+<div class="container mt-5">
+  <h2>Educational Features</h2>
+  <a href="/admin/educational-features/add" class="btn btn-success mb-3">Add New Feature</a>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Icon</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% features.forEach(feature => { %>
+        <tr>
+          <td>
+            <% if (feature.icon) { %>
+              <img src="/uploads/icons/<%= feature.icon %>" style="height: 40px;">
+            <% } %>
+          </td>
+          <td><%= feature.title %></td>
+          <td><%= feature.description %></td>
+          <td><%= feature.status %></td>
+          <td>
+            <a href="/admin/educational-features/edit/<%= feature.id %>" class="btn btn-warning btn-sm">Edit</a>
+            <a href="/admin/educational-features/delete/<%= feature.id %>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('footer') %>

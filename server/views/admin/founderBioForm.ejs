@@ -1,0 +1,346 @@
+<%- include('navbar') %>
+
+<div class="founder-form-container">
+  <div class="form-header">
+    <h1><i class="fas fa-user-edit"></i> <%= founder ? 'Edit' : 'Add' %> Founder Bio</h1>
+  </div>
+
+  <form action="<%= founder ? '/admin/updateFounderBio' : '/admin/saveFounderBio' %>" method="POST" class="founder-form">
+    <% if (founder) { %>
+      <input type="hidden" name="id" value="<%= founder.id %>">
+    <% } %>
+
+    <div class="form-section">
+      <h3><i class="fas fa-id-card"></i> Basic Information</h3>
+      <div class="form-grid">
+        <div class="form-group">
+          <label for="name">Full Name</label>
+          <div class="input-wrapper">
+            <i class="fas fa-signature"></i>
+            <input type="text" id="name" name="name" value="<%= founder?.name || '' %>" required placeholder="Enter founder's full name">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="title">Professional Title</label>
+          <div class="input-wrapper">
+            <i class="fas fa-briefcase"></i>
+            <input type="text" id="title" name="title" value="<%= founder?.title || '' %>" required placeholder="e.g. CEO, Founder">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="short_intro">Short Introduction</label>
+          <div class="input-wrapper">
+            <i class="fas fa-comment-alt"></i>
+            <input type="text" id="short_intro" name="short_intro" value="<%= founder?.short_intro || '' %>" placeholder="Brief tagline (appears under name)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3><i class="fas fa-align-left"></i> Biography</h3>
+      <div class="form-group">
+        <label for="bio_paragraph1">Paragraph 1</label>
+        <textarea id="bio_paragraph1" name="bio_paragraph1" rows="5" placeholder="First paragraph of biography"><%= founder?.bio_paragraph1 || '' %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="bio_paragraph2">Paragraph 2</label>
+        <textarea id="bio_paragraph2" name="bio_paragraph2" rows="5" placeholder="Second paragraph of biography"><%= founder?.bio_paragraph2 || '' %></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="bio_paragraph3">Paragraph 3</label>
+        <textarea id="bio_paragraph3" name="bio_paragraph3" rows="5" placeholder="Third paragraph of biography"><%= founder?.bio_paragraph3 || '' %></textarea>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <h3><i class="fas fa-chart-line"></i> Achievements</h3>
+      <div class="stats-grid">
+        <div class="form-group">
+          <label for="years_experience">Years Experience</label>
+          <div class="input-wrapper">
+            <i class="fas fa-calendar-alt"></i>
+            <input type="number" id="years_experience" name="years_experience" value="<%= founder?.years_experience || '' %>" placeholder="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="students_taught">Students Taught</label>
+          <div class="input-wrapper">
+            <i class="fas fa-users"></i>
+            <input type="number" id="students_taught" name="students_taught" value="<%= founder?.students_taught || '' %>" placeholder="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="top_rankers">Top Rankers</label>
+          <div class="input-wrapper">
+            <i class="fas fa-trophy"></i>
+            <input type="number" id="top_rankers" name="top_rankers" value="<%= founder?.top_rankers || '' %>" placeholder="0">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="books_authored">Books Authored</label>
+          <div class="input-wrapper">
+            <i class="fas fa-book"></i>
+            <input type="number" id="books_authored" name="books_authored" value="<%= founder?.books_authored || '' %>" placeholder="0">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="submit-btn">
+        <i class="fas fa-save"></i> <%= founder ? 'Update' : 'Save' %> Founder Bio
+      </button>
+    </div>
+  </form>
+</div>
+
+<%- include('footer') %>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+<style>
+  :root {
+    --primary-color: #5f38a3;
+    --secondary-color: #7c4dff;
+    --success-color: #4caf50;
+    --warning-color: #ff9800;
+    --danger-color: #f44336;
+    --light-gray: #f5f5f5;
+    --medium-gray: #e0e0e0;
+    --dark-gray: #333;
+    --text-color: #424242;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --transition: all 0.3s ease;
+  }
+
+  /* Base Styles */
+  .founder-form-container {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1.5rem;
+    font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .form-header {
+    margin-bottom: 2rem;
+  }
+
+  .form-header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .back-link {
+    color: var(--primary-color);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 500;
+    transition: var(--transition);
+  }
+
+  .back-link:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+  }
+
+  .founder-form {
+    background: white;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+
+  .form-section {
+    margin-bottom: 2.5rem;
+  }
+
+  .form-section h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--dark-gray);
+  }
+
+  .input-wrapper {
+    position: relative;
+  }
+
+  .input-wrapper i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+  }
+
+  .form-group input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+  }
+
+  .form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--medium-gray);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    transition: var(--transition);
+    resize: vertical;
+    min-height: 120px;
+    font-family: inherit;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(95, 56, 163, 0.2);
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: #999;
+  }
+
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .submit-btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .submit-btn:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  .cancel-btn {
+    background-color: white;
+    color: var(--danger-color);
+    border: 1px solid var(--danger-color);
+    padding: 12px 24px;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cancel-btn:hover {
+    background-color: var(--danger-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .founder-form-container {
+      padding: 0 1rem;
+    }
+
+    .founder-form {
+      padding: 1.5rem;
+    }
+
+    .form-header h1 {
+      font-size: 1.5rem;
+    }
+
+    .form-grid,
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+      justify-content: center;
+    }
+
+    .submit-btn, .cancel-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .form-header h1 {
+      font-size: 1.25rem;
+    }
+
+    .form-group input {
+      padding: 10px 12px 10px 40px;
+    }
+
+    .input-wrapper i {
+      left: 12px;
+      font-size: 0.9rem;
+    }
+  }
+</style>

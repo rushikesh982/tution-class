@@ -1,0 +1,115 @@
+        body { 
+            font-family: 'Inter', sans-serif; 
+            line-height: 1.6;
+        }
+        
+        .gradient-bg { 
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+        }
+        
+        .card-hover { 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
+        }
+        
+        .card-hover:hover { 
+            transform: translateY(-5px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1); 
+        }
+        
+        .section-divider {
+            width: 80px;
+            height: 4px;
+            background-color: #6f42c1;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            opacity: 0.9;
+        }
+        
+        .btn-primary-custom {
+            background-color: #6f42c1;
+            border-color: #6f42c1;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: #5a2d91;
+            border-color: #5a2d91;
+        }
+        
+        .btn-outline-custom {
+            color: white;
+            border: 2px solid white;
+            padding: 12px 30px;
+            font-weight: 600;
+        }
+        
+        .btn-outline-custom:hover {
+            background-color: white;
+            color: #6f42c1;
+        }
+        
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #6f42c1;
+        }
+        
+        .course-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .batch-time {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+        
+        .batch-type {
+            color: #6f42c1;
+            font-weight: 600;
+        }
+        
+        .testimonial-stars {
+            color: #ffc107;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .bg-dark-custom {
+            background-color: #2c3e50;
+        }
+        
+        .text-muted-light {
+            color: #bdc3c7 !important;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+            .hero-subtitle {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+        }

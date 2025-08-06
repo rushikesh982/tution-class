@@ -1,0 +1,155 @@
+<%- include('navbar') %>
+
+<div class="form-page">
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <!-- Form Card -->
+        <div class="form-card card shadow-lg border-0">
+          <div class="card-header text-white">
+            <h2 class="h4 mb-0"><i class="fas <%= about ? 'fa-edit' : 'fa-plus-circle' %> mr-2"></i><%= about ? 'Edit' : 'Add' %> About Information</h2>
+          </div>
+          
+          <div class="card-body p-4 p-md-5">
+            <form action="<%= about ? '/admin/about/update/' + about.id : '/admin/about/save' %>" method="POST">
+              <!-- Years of Experience -->
+              <div class="mb-4 form-group">
+                <label for="experience_years" class="form-label fw-bold">Years of Experience</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light"><i class="fas fa-calendar-alt text-primary"></i></span>
+                  <input type="number" id="experience_years" name="experience_years" class="form-control form-control-lg" 
+                         value="<%= about?.experience_years || '' %>" required>
+                </div>
+              </div>
+              
+              <!-- Description -->
+              <div class="mb-4 form-group">
+                <label for="description" class="form-label fw-bold">Description</label>
+                <div class="input-group">
+                  <span class="input-group-text bg-light align-items-start pt-2"><i class="fas fa-align-left text-primary"></i></span>
+                  <textarea id="description" name="description" class="form-control form-control-lg" 
+                            rows="5" required><%= about?.description || '' %></textarea>
+                </div>
+              </div>
+              
+              <div class="row">
+                <!-- Students Taught -->
+                <div class="col-md-6 mb-4 form-group">
+                  <label for="students_taught" class="form-label fw-bold">Students Taught</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light"><i class="fas fa-users text-primary"></i></span>
+                    <input type="text" id="students_taught" name="students_taught" class="form-control form-control-lg" 
+                           value="<%= about?.students_taught || '' %>" required>
+                  </div>
+                </div>
+                
+                <!-- Success Rate -->
+                <div class="col-md-6 mb-4 form-group">
+                  <label for="success_rate" class="form-label fw-bold">Success Rate</label>
+                  <div class="input-group">
+                    <span class="input-group-text bg-light"><i class="fas fa-trophy text-primary"></i></span>
+                    <input type="text" id="success_rate" name="success_rate" class="form-control form-control-lg" 
+                           value="<%= about?.success_rate || '' %>" required>
+                    <span class="input-group-text bg-light">%</span>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- Submit Button -->
+              <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                <button type="submit" class="btn btn-primary btn-lg px-4">
+                  <i class="fas fa-save mr-2"></i><%= about ? 'Update' : 'Submit' %>
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%- include('footer') %>
+
+<style>
+  /* Form Page Styles */
+  .form-page {
+    background-color: #f8f9fa;
+    min-height: calc(100vh - 120px);
+  }
+  
+  .form-card {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .card-header {
+    border-radius: 12px 12px 0 0 !important;
+    padding: 1.25rem 1.5rem;
+    background-color: #5f38a4;
+  }
+  
+  .form-control-lg {
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .input-group-text {
+    transition: all 0.3s ease;
+  }
+  
+  .form-control:focus, .form-select:focus {
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+    border-color: #5f38a4;
+  }
+  
+  .input-group:focus-within .input-group-text {
+    background-color: #e7f1ff;
+    color: #5f38a4;
+  }
+  
+  textarea.form-control {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .card-body {
+      padding: 1.5rem !important;
+    }
+    
+    .form-control-lg {
+      font-size: 0.95rem;
+    }
+    
+    .btn-lg {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .card-body {
+      padding: 1.25rem !important;
+    }
+    
+    .row > .col-md-6 {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+    
+    .row > .col-md-6:last-child {
+      margin-bottom: 0;
+    }
+    
+    .d-md-flex {
+      display: flex !important;
+      justify-content: center !important;
+    }
+    
+    .btn-lg {
+      width: 100%;
+    }
+  }
+</style>

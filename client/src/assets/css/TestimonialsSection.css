@@ -1,0 +1,72 @@
+.testimonial-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .testimonial-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+      }
+
+      .testimonial-avatar.student1 {
+        background: #e0e7ff;
+      }
+      .testimonial-avatar.student2 {
+        background: #dcfce7;
+      }
+      .testimonial-avatar.student3 {
+        background: #f3e8ff;
+      }
+
+      .testimonial-info h4 {
+        font-weight: 600;
+        color: #1f2937;
+      }
+
+      .testimonial-info p {
+        font-size: 0.875rem;
+        color: #6b7280;
+      }
+
+      .testimonial-rating {
+        color: #fbbf24;
+        margin-bottom: 1rem;
+      }
+
+      .testimonial-text {
+        color: #374151;
+      }
+      .section
+      {
+        background: #f9fafb
+      }
+      .section-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: #1f2937;
+      }
+      .section-subtitle {
+        text-align: center;
+        font-size: 1.125rem;
+        color: #6b7280;
+        margin-bottom: 3rem;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }

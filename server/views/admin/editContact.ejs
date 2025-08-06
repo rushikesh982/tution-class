@@ -1,0 +1,224 @@
+<%- include('navbar')%>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit Contact Info | Admin Panel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --light-bg: #f8f9fa;
+    }
+    
+    body {
+      background-color: var(--light-bg);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    
+    .form-container {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .section-title {
+      color: var(--secondary-color);
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    .form-label {
+      font-weight: 500;
+      color: var(--secondary-color);
+    }
+    
+    .social-icon {
+      position: absolute;
+      left: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary-color);
+    }
+    
+    .social-input {
+      padding-left: 35px;
+    }
+    
+    @media (max-width: 768px) {
+      .form-container {
+        padding: 1.5rem;
+      }
+      
+      .section-title {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+        <div class="form-container">
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2 class="mb-0">
+              <i class="bi bi-pencil-square me-2"></i>Edit Contact Information
+            </h2>
+            <a href="/admin/contactList" class="btn btn-outline-secondary">
+              <i class="bi bi-arrow-left me-1"></i> Back to List
+            </a>
+          </div>
+          
+          <form action="/admin/updateContact" method="POST">
+            <input type="hidden" name="id" value="<%= contact.id %>">
+            
+            <!-- Phone Information Section -->
+            <div class="mb-4">
+              <h5 class="section-title">
+                <i class="bi bi-telephone me-2"></i>Phone Information
+              </h5>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label">Main Phone</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-telephone-outbound"></i></span>
+                    <input type="tel" class="form-control" name="phone_main" value="<%= contact.phone_main %>" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Admissions Phone</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-telephone-plus"></i></span>
+                    <input type="tel" class="form-control" name="phone_admissions" value="<%= contact.phone_admissions %>" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Support Phone</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-headset"></i></span>
+                    <input type="tel" class="form-control" name="phone_support" value="<%= contact.phone_support %>" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Email Information Section -->
+            <div class="mb-4">
+              <h5 class="section-title">
+                <i class="bi bi-envelope me-2"></i>Email Information
+              </h5>
+              <div class="row g-3">
+                <div class="col-md-4">
+                  <label class="form-label">General Email</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope-at"></i></span>
+                    <input type="email" class="form-control" name="email_general" value="<%= contact.email_general %>" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Admissions Email</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope-paper"></i></span>
+                    <input type="email" class="form-control" name="email_admissions" value="<%= contact.email_admissions %>" required>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <label class="form-label">Support Email</label>
+                  <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-envelope-exclamation"></i></span>
+                    <input type="email" class="form-control" name="email_support" value="<%= contact.email_support %>" required>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Address Information Section -->
+            <div class="mb-4">
+              <h5 class="section-title">
+                <i class="bi bi-geo-alt me-2"></i>Address Information
+              </h5>
+              <div class="mb-3">
+                <label class="form-label">Address Line 1</label>
+                <input type="text" class="form-control" name="address_line1" value="<%= contact.address_line1 %>" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Address Line 2</label>
+                <input type="text" class="form-control" name="address_line2" value="<%= contact.address_line2 %>">
+              </div>
+              <div class="row g-3">
+                <div class="col-md-3">
+                  <label class="form-label">City</label>
+                  <input type="text" class="form-control" name="city" value="<%= contact.city %>" required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">State/Province</label>
+                  <input type="text" class="form-control" name="state" value="<%= contact.state %>" required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Zip/Postal Code</label>
+                  <input type="text" class="form-control" name="zipcode" value="<%= contact.zipcode %>" required>
+                </div>
+                <div class="col-md-3">
+                  <label class="form-label">Country</label>
+                  <input type="text" class="form-control" name="country" value="<%= contact.country %>" required>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Social Media Section -->
+            <div class="mb-4">
+              <h5 class="section-title">
+                <i class="bi bi-share me-2"></i>Social Media Links
+              </h5>
+              <div class="row g-3">
+                <div class="col-md-6 position-relative">
+                  <label class="form-label">Facebook URL</label>
+                  <i class="bi bi-facebook social-icon"></i>
+                  <input type="url" class="form-control social-input" name="facebook" value="<%= contact.facebook %>" placeholder="https://facebook.com/yourpage">
+                </div>
+                <div class="col-md-6 position-relative">
+                  <label class="form-label">Instagram URL</label>
+                  <i class="bi bi-instagram social-icon"></i>
+                  <input type="url" class="form-control social-input" name="instagram" value="<%= contact.instagram %>" placeholder="https://instagram.com/yourpage">
+                </div>
+                <div class="col-md-6 position-relative">
+                  <label class="form-label">LinkedIn URL</label>
+                  <i class="bi bi-linkedin social-icon"></i>
+                  <input type="url" class="form-control social-input" name="linkedin" value="<%= contact.linkedin %>" placeholder="https://linkedin.com/company/yourpage">
+                </div>
+                <div class="col-md-6 position-relative">
+                  <label class="form-label">YouTube URL</label>
+                  <i class="bi bi-youtube social-icon"></i>
+                  <input type="url" class="form-control social-input" name="youtube" value="<%= contact.youtube %>" placeholder="https://youtube.com/yourchannel">
+                </div>
+              </div>
+            </div>
+            
+            <!-- Form Actions -->
+            <div class="d-flex justify-content-between mt-5">
+              <button type="reset" class="btn btn-outline-danger">
+                <i class="bi bi-arrow-counterclockwise me-1"></i> Reset
+              </button>
+              <button type="submit" class="btn btn-success px-4">
+                <i class="bi bi-check-circle me-1"></i> Update Contact
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+<%- include('footer')%>
